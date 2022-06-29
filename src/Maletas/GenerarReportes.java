@@ -108,9 +108,7 @@ public class GenerarReportes extends JFrame implements ItemListener {
 		case 4:
 			reportePorPrecio();
 			break;
-
 		default:
-			
 			break;
 		}
 
@@ -141,12 +139,73 @@ public class GenerarReportes extends JFrame implements ItemListener {
 		
 	}
 
-	private void reportePorPrecio() {
-		
-		
-	}
+	
 
 	private void reportePorCantidadOptima() {
+		int superaron = 0;
+		int noSuperaron = 0;
+		int igualaron = 0;
+		if(VentanaMaletas.cantidadUnidadesVendidasAviator > VentanaMaletas.cantidadOptima)
+			superaron +=1;
+		else if(VentanaMaletas.cantidadUnidadesVendidasAviator == VentanaMaletas.cantidadOptima)
+			igualaron+=1;
+		else {
+			noSuperaron +=1;
+		}
+		
+		if(VentanaMaletas.cantidadUnidadesVendidasCentury > VentanaMaletas.cantidadOptima)
+			superaron +=1;
+		else if(VentanaMaletas.cantidadUnidadesVendidasCentury == VentanaMaletas.cantidadOptima)
+			igualaron+=1;
+		else {
+			noSuperaron +=1;
+		}
+		
+		if(VentanaMaletas.cantidadUnidadesVendidasBenneton > VentanaMaletas.cantidadOptima)
+			superaron +=1;
+		else if(VentanaMaletas.cantidadUnidadesVendidasBenneton == VentanaMaletas.cantidadOptima)
+			igualaron+=1;
+		else {
+			noSuperaron +=1;
+		}
+		
+		if(VentanaMaletas.cantidadUnidadesVendidasLucas > VentanaMaletas.cantidadOptima)
+			superaron +=1;
+		else if(VentanaMaletas.cantidadUnidadesVendidasLucas == VentanaMaletas.cantidadOptima)
+			igualaron+=1;
+		else {
+			noSuperaron +=1;
+		}
+		
+		if(VentanaMaletas.cantidadUnidadesVendidasSamsonite > VentanaMaletas.cantidadOptima)
+			superaron +=1;
+		else if(VentanaMaletas.cantidadUnidadesVendidasSamsonite == VentanaMaletas.cantidadOptima)
+			igualaron+=1;
+		else {
+			noSuperaron +=1;
+		}
+
+		textAreaReporte.setText("ESTADISTICA SOBRE LA CANTIDA OPTIMA\n");
+		textAreaReporte.append("Cantidad de modelos que superaron la cantidad optima : "+superaron+"\n");
+		textAreaReporte.append("Cantidad de modelos que no superaron la cantidad optima : "+noSuperaron+"\n");
+		textAreaReporte.append("Cantidad de modelos que igualaron la cantidad optima : "+igualaron);
+		
+	}
+	
+	private void reportePorPrecio() {
+		//Declaracion de variables
+		double promedio = 0;
+		double mayor = 0;
+		double menor = 0 ;
+		
+		if(VentanaMaletas.cantidadUnidadesVendidasAviator > VentanaMaletas.cantidadUnidadesVendidasCentury && 
+				VentanaMaletas.cantidadUnidadesVendidasAviator > VentanaMaletas.cantidadUnidadesVendidasBenneton &&
+				VentanaMaletas.cantidadUnidadesVendidasAviator > VentanaMaletas.cantidadUnidadesVendidasLucas && 
+				VentanaMaletas.cantidadUnidadesVendidasAviator > VentanaMaletas.cantidadUnidadesVendidasSamsonite )
+			mayor = VentanaMaletas.cantidadUnidadesVendidasAviator;
+		
+		
+		textAreaReporte.setText("ESTADISTICA SOBRE EL PRECIO\n");
 		
 		
 	}
