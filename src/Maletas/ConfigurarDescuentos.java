@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-public class ConfigurarDescuentos extends JFrame {
+public class ConfigurarDescuentos extends JFrame  implements ActionListener {
 
 	private JPanel contentPane;
 	private JLabel lblTipoObsequio;
@@ -110,14 +110,7 @@ public class ConfigurarDescuentos extends JFrame {
 			btnCerrar = new JButton("Cancelar");
 			btnCerrar.setBounds(267, 32, 89, 23);
 			contentPane.add(btnCerrar);
-			btnCerrar.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if(e.getSource() == btnCerrar)
-					{
-						setVisible(false);
-					}
-				}
-			});
+			btnCerrar.addActionListener(this);
 		}
 		{
 			lblPorcentaje = new JLabel("%");
@@ -140,5 +133,19 @@ public class ConfigurarDescuentos extends JFrame {
 			contentPane.add(lblPorcentaje_3);
 		}
 	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == btnCerrar)
+			actionPerformedBtnCerrar(e);
+		
+	}
+	
+	
+	public void actionPerformedBtnCerrar(ActionEvent e) {
+		this.setVisible(false);
+	}
+	
+	
 
 }

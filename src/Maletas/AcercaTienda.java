@@ -16,7 +16,7 @@ import java.awt.Component;
 import javax.swing.Box;
 import javax.swing.JButton;
 
-public class AcercaTienda extends JFrame {
+public class AcercaTienda extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JLabel lblTienda;
@@ -57,13 +57,13 @@ public class AcercaTienda extends JFrame {
 		{
 			lblTienda = new JLabel("Tienda 1.0");
 			lblTienda.setFont(new Font("Dialog", Font.BOLD, 24));
-			lblTienda.setBounds(159, 11, 118, 71);
+			lblTienda.setBounds(144, 11, 118, 71);
 			contentPane.add(lblTienda);
 		}
 		{
 			lblAutores = new JLabel("Autores");
 			lblAutores.setFont(new Font("Tahoma", Font.BOLD, 16));
-			lblAutores.setBounds(184, 111, 71, 14);
+			lblAutores.setBounds(176, 110, 71, 14);
 			contentPane.add(lblAutores);
 		}
 		{
@@ -101,6 +101,19 @@ public class AcercaTienda extends JFrame {
 					}
 				}
 			});
+			
+			
+			
 		}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(this.btnCerrar.equals(e.getSource()))
+			actionPerformedBtnCerrar(e);
+		
+	}
+	public void actionPerformedBtnCerrar(ActionEvent e) {
+		this.setVisible(false);
 	}
 }

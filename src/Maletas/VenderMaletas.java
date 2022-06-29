@@ -18,7 +18,7 @@ import java.awt.TextArea;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 
-public class VenderMaletas extends JFrame {
+public class VenderMaletas extends JFrame implements ActionListener {
 
 	private static int cont;
 
@@ -212,13 +212,7 @@ public class VenderMaletas extends JFrame {
 			btnCerrar = new JButton("Cerrar");
 			btnCerrar.setBounds(311, 33, 89, 23);
 			contentPane.add(btnCerrar);
-			btnCerrar.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if (e.getSource() == btnCerrar) {
-						setVisible(false);
-					}
-				}
-			});
+			btnCerrar.addActionListener(this);
 		}
 		{
 			scrollPane = new JScrollPane();
@@ -231,4 +225,15 @@ public class VenderMaletas extends JFrame {
 			}
 		}
 	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrar)
+			actionPerformedBtnCerrar(e);
+	}
+	
+	public void actionPerformedBtnCerrar(ActionEvent e) {
+		this.setVisible(false);
+	}
+	
 }

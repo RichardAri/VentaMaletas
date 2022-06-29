@@ -12,7 +12,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class ConsultarMaleta extends JFrame {
+public class ConsultarMaleta extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JLabel lblModeloM;
@@ -116,28 +116,38 @@ public class ConsultarMaleta extends JFrame {
 			cmbModelo.addItem("Benneton");
 			cmbModelo.addItem("Lucas");
 			cmbModelo.addItem("Samsonite");
-			cmbModelo.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					String modeloseleccionado = (String)cmbModelo.getSelectedItem();
-					if(modeloseleccionado == "Aviator")
-					{
-
-					}
-				}
-			});
+			cmbModelo.addActionListener(this);
 		}
 		{
 			btnCerrar = new JButton("Cerrar");
-			btnCerrar.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if(e.getSource() == btnCerrar)
-					{
-						setVisible(false);
-					}
-				}
-			});
+			btnCerrar.addActionListener(this);
 			btnCerrar.setBounds(311, 7, 89, 23);
 			contentPane.add(btnCerrar);
 		}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == btnCerrar)
+			actionPerformedBtnCerrar(e);
+		if(e.getSource() == cmbModelo)
+			actionPerformedCmbModelo(e);
+	}
+	
+	public void actionPerformedCmbModelo(ActionEvent e) {
+		
+		//Declaracion de variables
+		String modeloseleccionado = (String)cmbModelo.getSelectedItem();
+		if(modeloseleccionado == "Aviator")
+		{
+
+		}
+		
+	}
+	
+	
+	public void actionPerformedBtnCerrar(ActionEvent e) {
+		
+		this.setVisible(false);
 	}
 }

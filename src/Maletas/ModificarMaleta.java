@@ -17,7 +17,7 @@ import java.beans.PropertyChangeEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 
-public class ModificarMaleta extends JFrame {
+public class ModificarMaleta extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JLabel lblModeloM;
@@ -146,13 +146,7 @@ public class ModificarMaleta extends JFrame {
 		cmbModelo.addItem("Samsonite");
 
 		btnCerrar = new JButton("Cerrar");
-		btnCerrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				if (e.getSource() == btnCerrar) {
-					setVisible(false);
-				}
-			}
-		});
+		btnCerrar.addActionListener(this);
 		btnCerrar.setBounds(311, 7, 89, 23);
 		contentPane.add(btnCerrar);
 
@@ -196,6 +190,20 @@ public class ModificarMaleta extends JFrame {
 		btnGrabar.setBounds(311, 33, 89, 23);
 		contentPane.add(btnGrabar);
 	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnCerrar)
+			actionPerformedBtnCerrar(e);
+		
+	}
+	
+	public void actionPerformedBtnCerrar(ActionEvent e) {
+		this.setVisible(false);
+	}
+	
+	
+	
 }
 
 
