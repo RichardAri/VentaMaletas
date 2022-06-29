@@ -7,10 +7,13 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class ConfigurarCuota extends JFrame {
+public class ConfigurarCuota extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JLabel lblTipoObsequio;
@@ -58,14 +61,44 @@ public class ConfigurarCuota extends JFrame {
 		}
 		{
 			btnAceptar = new JButton("Aceptar");
+			btnAceptar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
 			btnAceptar.setBounds(312, 7, 89, 23);
 			contentPane.add(btnAceptar);
 		}
 		{
 			btnCerrar = new JButton("Cancelar");
+			btnCerrar.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
 			btnCerrar.setBounds(312, 33, 89, 23);
 			contentPane.add(btnCerrar);
 		}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btnAceptar)
+			actionPerformedBtnAceptar(e);
+		if (e.getSource() == btnCerrar)
+			actionPerformedBtnCerrar(e);
+	}
+
+	public void rellenarCuotaDiaria() {
+		txtCuota.setText(VentanaMaletas.cuotaDiaria+"");
+
+	}
+
+	public void actionPerformedBtnAceptar(ActionEvent e) {
+		VentanaMaletas.cuotaDiaria= Double.parseDouble(txtCuota.getText());
+		JOptionPane.showMessageDialog(null,"Cuota configurada Exitosamente", "Configuracion de cuota", JOptionPane.INFORMATION_MESSAGE);
+	}
+
+	public void actionPerformedBtnCerrar(ActionEvent e) {
+		this.setVisible(false);
 	}
 
 }

@@ -9,10 +9,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-public class ConfigurarCantidad extends JFrame  implements ActionListener {
+public class ConfigurarCantidad extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JLabel lblTipoObsequio;
@@ -23,7 +24,7 @@ public class ConfigurarCantidad extends JFrame  implements ActionListener {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) { 
+	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -69,18 +70,28 @@ public class ConfigurarCantidad extends JFrame  implements ActionListener {
 			contentPane.add(btnCerrar);
 			btnCerrar.addActionListener(this);
 		}
+		rellenarCantidadOptima();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == btnCerrar)
-			actionPerformedbtnCerrar(e);
-			
-		
+		if (e.getSource() == btnCerrar)
+			actionPerformedBtnCerrar(e);
+		if (e.getSource() == btnAceptar)
+			actionPerformedBtnAceptar(e);
+	}
+
+	public void actionPerformedBtnCerrar(ActionEvent e) {
+		this.setVisible(false);
 	}
 	
-	public void actionPerformedbtnCerrar(ActionEvent e) {
-		
+	public void rellenarCantidadOptima() {
+		txtCantidad.setText(VentanaMaletas.cantidadOptima+"");
+	}
+
+	public void actionPerformedBtnAceptar(ActionEvent e) {
+		VentanaMaletas.cantidadOptima = Integer.parseInt(txtCantidad.getText());
+		JOptionPane.showMessageDialog(null,"Cantidad Optima Actualizada Exitosamente", "Configuracion de Cantidad Optima", JOptionPane.INFORMATION_MESSAGE);
 	}
 
 }

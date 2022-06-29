@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
@@ -99,6 +100,7 @@ public class ConfigurarObsequios extends JFrame implements ActionListener {
 		}
 		{
 			btnAceptar = new JButton("Aceptar");
+			btnAceptar.addActionListener(this);
 			btnAceptar.setBounds(267, 7, 89, 23);
 			contentPane.add(btnAceptar);
 		}
@@ -108,18 +110,36 @@ public class ConfigurarObsequios extends JFrame implements ActionListener {
 			contentPane.add(btnCerrar);
 			btnCerrar.addActionListener(this);
 		}
+		rellenarObsequios();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == btnCerrar)
+		if (e.getSource() == btnCerrar)
 			actionPerformedBtnCerrar(e);
-		
+		if (e.getSource() == btnAceptar)
+			actionPerformedBtnAceptar(e);
+
 	}
-	
-	
+
+	public void rellenarObsequios() {
+		txtTipoObsequio.setText("" + VentanaMaletas.tipoObsequio);
+		txtUnoACinco.setText(VentanaMaletas.obsequio1);
+		txtSeisADiez.setText(VentanaMaletas.obsequio2);
+		txtOnceAMas.setText(VentanaMaletas.obsequio3);
+	}
+
 	public void actionPerformedBtnCerrar(ActionEvent e) {
 		this.setVisible(false);
+	}
+
+	public void actionPerformedBtnAceptar(ActionEvent e) {
+		VentanaMaletas.tipoObsequio = txtTipoObsequio.getText();
+		VentanaMaletas.obsequioCantidad1 = Integer.parseInt(txtUnoACinco.getText());
+		VentanaMaletas.obsequioCantidad2 = Integer.parseInt(txtSeisADiez.getText());
+		VentanaMaletas.obsequioCantidad3 = Integer.parseInt(txtOnceAMas.getText());
+		JOptionPane.showMessageDialog(null,"Obsequio actualizado Exitosamente", "Configuracion de Obsequio", JOptionPane.INFORMATION_MESSAGE);
+		txtTipoObsequio.requestFocus();
 	}
 
 }
