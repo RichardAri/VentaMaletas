@@ -212,7 +212,7 @@ public class VenderMaletas extends JFrame implements ActionListener, ItemListene
 			textAreaVenta.append("Importe descuento " + impDescuento + "\n");
 		}
 		textAreaVenta.append("Importe pagar : " + (impCompra - impDescuento) + "\n");
-
+		
 		// Cantidad Regalo
 		if (cantidad > 0 && cantidad < 6)
 			textAreaVenta.append("Unidades obsequiadas : " + cantidad * VentanaMaletas.obsequioCantidad1);
