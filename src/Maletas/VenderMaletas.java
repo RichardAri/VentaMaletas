@@ -223,8 +223,9 @@ public class VenderMaletas extends JFrame implements ActionListener, ItemListene
 		
 		cont+=1;
 		//mensaje 
-		if (cont == 5) { 
-			String str = "Venta Nro.5\nImporte total general acumulado : S/."+new DecimalFormat(".##").format(importGeneralAcumulado)+"\nPorcentaje de la cuota diaria : "+(importGeneralAcumulado/5.0)+"%";
+		if (cont == 5) {
+			BigDecimal impAcumulado = new BigDecimal(importGeneralAcumulado).setScale(2, RoundingMode.HALF_UP); 
+			String str = "Venta Nro.5\nImporte total general acumulado : S/."+impAcumulado+"\nPorcentaje de la cuota diaria : "+((importGeneralAcumulado/5)/5)+"%";
 			JOptionPane.showMessageDialog(null,str, "Avance de ventas", JOptionPane.INFORMATION_MESSAGE);
 			cont = 0;
 		}
