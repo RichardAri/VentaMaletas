@@ -120,7 +120,6 @@ public class ConfigurarObsequios extends JFrame implements ActionListener {
 	
 	public void actionPerformedBtnCerrar(ActionEvent e) {
 		this.setVisible(false);
-		
 	}
 
 }

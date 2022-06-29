@@ -151,8 +151,11 @@ public class VenderMaletas extends JFrame implements ActionListener, ItemListene
 			importGeneralAcumulado+=impTotal;
 			textAreaVenta.append("Modelo : " + VentanaMaletas.modelo0 + "\n");
 			textAreaVenta.append("Precio : " + VentanaMaletas.precio0 + "\n");
-			textAreaVenta.append("Cantidad adquirida : " + txtCantidad.getText() + "\n");
+			textAreaVenta.append("Cantidad adquirida : " + cantidad + "\n");
 			textAreaVenta.append("importe compra : " + impCompra + "\n");
+			VentanaMaletas.cantidadUnidadesVendidasAviator +=1;
+			VentanaMaletas.impTotalAviator += impTotal;
+			VentanaMaletas.cantidadVentasAviator += cantidad;
 		}
 		if (cmbModelo.getSelectedIndex() == 1) {
 			impCompra = cantidad * VentanaMaletas.precio1;
@@ -160,8 +163,11 @@ public class VenderMaletas extends JFrame implements ActionListener, ItemListene
 			importGeneralAcumulado+=impTotal;
 			textAreaVenta.append("Modelo : " + VentanaMaletas.modelo1 + "\n");
 			textAreaVenta.append("Precio : " + VentanaMaletas.precio1 + "\n");
-			textAreaVenta.append("Cantidad adquirida : " + txtCantidad.getText() + "\n");
+			textAreaVenta.append("Cantidad adquirida : " + cantidad + "\n");
 			textAreaVenta.append("importe compra : " + impCompra + "\n");
+			VentanaMaletas.cantidadUnidadesVendidasCentury+=1;
+			VentanaMaletas.impTotalCentury += impTotal;
+			VentanaMaletas.cantidadVentasCentury += cantidad;
 
 		}
 		if (cmbModelo.getSelectedIndex() == 2) {
@@ -170,8 +176,11 @@ public class VenderMaletas extends JFrame implements ActionListener, ItemListene
 			importGeneralAcumulado+=impTotal;
 			textAreaVenta.append("Modelo : " + VentanaMaletas.modelo2 + "\n");
 			textAreaVenta.append("Precio : " + VentanaMaletas.precio2 + "\n");
-			textAreaVenta.append("Cantidad adquirida : " + txtCantidad.getText() + "\n");
+			textAreaVenta.append("Cantidad adquirida : " + cantidad + "\n");
 			textAreaVenta.append("importe compra : " + impCompra + "\n");
+			VentanaMaletas.cantidadUnidadesVendidasBenneton+=1;
+			VentanaMaletas.impTotalBenneton += impTotal;
+			VentanaMaletas.cantidadVentasBenneton += cantidad;
 
 		}
 		if (cmbModelo.getSelectedIndex() == 3) {
@@ -180,8 +189,11 @@ public class VenderMaletas extends JFrame implements ActionListener, ItemListene
 			importGeneralAcumulado+=impTotal;
 			textAreaVenta.append("Modelo : " + VentanaMaletas.modelo3 + "\n");
 			textAreaVenta.append("Precio : " + VentanaMaletas.precio3 + "\n");
-			textAreaVenta.append("Cantidad adquirida : " + txtCantidad.getText() + "\n");
+			textAreaVenta.append("Cantidad adquirida : " + cantidad + "\n");
 			textAreaVenta.append("importe compra : " + impCompra + "\n");
+			VentanaMaletas.cantidadUnidadesVendidasLucas+=1;
+			VentanaMaletas.impTotalLucas += impTotal;
+			VentanaMaletas.cantidadVentasLucas += cantidad;
 
 		}
 		if (cmbModelo.getSelectedIndex() == 4) {
@@ -190,8 +202,11 @@ public class VenderMaletas extends JFrame implements ActionListener, ItemListene
 			importGeneralAcumulado+=impTotal;
 			textAreaVenta.append("Modelo : " + VentanaMaletas.modelo4 + "\n");
 			textAreaVenta.append("Precio : " + VentanaMaletas.precio4 + "\n");
-			textAreaVenta.append("Cantidad adquirida : " + txtCantidad.getText() + "\n");
+			textAreaVenta.append("Cantidad adquirida : " + cantidad + "\n");
 			textAreaVenta.append("importe compra : " + impCompra + "\n");
+			VentanaMaletas.cantidadUnidadesVendidasSamsonite+=1;
+			VentanaMaletas.impTotalSamsonite += impTotal;
+			VentanaMaletas.cantidadVentasSamsonite+= cantidad;
 		}
 
 		// Descuento

@@ -69,6 +69,38 @@ public class VentanaMaletas extends JFrame implements ActionListener {
 	public static double porcentaje2 = 10.0;
 	public static double porcentaje3 = 12.5;
 	public static double porcentaje4 = 15.0;
+	
+	//Cantidad Optima
+	public static double cuotaDiaria = 30000; 
+	public static int cantidadOptima = 10;
+	
+	//Variable de Reportes
+	
+	//Aviator
+	public static int cantidadVentasAviator = 0;
+	public static int cantidadUnidadesVendidasAviator = 0;
+	public static double impTotalAviator = 0;
+	
+	//Century
+	public static int cantidadVentasCentury = 0;
+	public static int cantidadUnidadesVendidasCentury= 0;
+	public static double impTotalCentury = 0;
+	
+	//Benneton
+	public static int cantidadVentasBenneton= 0;
+	public static int cantidadUnidadesVendidasBenneton= 0;
+	public static double impTotalBenneton = 0;
+	
+	//Lucas
+	public static int cantidadVentasLucas= 0;
+	public static int cantidadUnidadesVendidasLucas= 0;
+	public static double impTotalLucas = 0;
+	
+	//Samsonite
+	public static int cantidadVentasSamsonite= 0;
+	public static int cantidadUnidadesVendidasSamsonite= 0;
+	public static double impTotalSamsonite = 0;
+	
 
 	private JMenuBar menuBar;
 	private JMenu mnNewMenu;

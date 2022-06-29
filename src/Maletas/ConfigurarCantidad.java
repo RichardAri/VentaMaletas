@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-public class ConfigurarCantidad extends JFrame {
+public class ConfigurarCantidad extends JFrame  implements ActionListener {
 
 	private JPanel contentPane;
 	private JLabel lblTipoObsequio;
@@ -67,15 +67,20 @@ public class ConfigurarCantidad extends JFrame {
 			btnCerrar = new JButton("Cancelar");
 			btnCerrar.setBounds(323, 32, 89, 23);
 			contentPane.add(btnCerrar);
-			btnCerrar.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					if(e.getSource() == btnCerrar)
-					{
-						setVisible(false);
-					}
-				}
-			});
+			btnCerrar.addActionListener(this);
 		}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource() == btnCerrar)
+			actionPerformedbtnCerrar(e);
+			
+		
+	}
+	
+	public void actionPerformedbtnCerrar(ActionEvent e) {
+		
 	}
 
 }
