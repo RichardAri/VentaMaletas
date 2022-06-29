@@ -21,8 +21,8 @@ import java.awt.event.ItemEvent;
 public class VenderMaletas extends JFrame implements ActionListener, ItemListener {
 	
 	//Declaracion de variables
-	private static int cont;
-
+	private static int cont=0;
+	private static double importGeneralAcumulado=0;
 	private JPanel contentPane;
 	private JLabel lblModelo;
 	private JLabel lblPrecio;
@@ -41,7 +41,6 @@ public class VenderMaletas extends JFrame implements ActionListener, ItemListene
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				cont = 0;
 				try {
 					VenderMaletas frame = new VenderMaletas();
 					frame.setVisible(true);
@@ -140,22 +139,22 @@ public class VenderMaletas extends JFrame implements ActionListener, ItemListene
 	}
 
 	public void actionPerformedBtnVender(ActionEvent e) {
-		cont += 1;
 		double impCompra = 0, impDescuento = 0, impTotal = 0;
 		int cantidad = Integer.parseInt(txtCantidad.getText());
 		textAreaVenta.setText("BOLETA DE VENTA\n\n");
 		if (cmbModelo.getSelectedIndex() == 0) {
 			impCompra = cantidad * VentanaMaletas.precio0;
 			impTotal += impCompra;
+			importGeneralAcumulado+=impTotal;
 			textAreaVenta.append("Modelo : " + VentanaMaletas.modelo0 + "\n");
 			textAreaVenta.append("Precio : " + VentanaMaletas.precio0 + "\n");
 			textAreaVenta.append("Cantidad adquirida : " + txtCantidad.getText() + "\n");
 			textAreaVenta.append("importe compra : " + impCompra + "\n");
-
 		}
 		if (cmbModelo.getSelectedIndex() == 1) {
 			impCompra = cantidad * VentanaMaletas.precio1;
 			impTotal += impCompra;
+			importGeneralAcumulado+=impTotal;
 			textAreaVenta.append("Modelo : " + VentanaMaletas.modelo1 + "\n");
 			textAreaVenta.append("Precio : " + VentanaMaletas.precio1 + "\n");
 			textAreaVenta.append("Cantidad adquirida : " + txtCantidad.getText() + "\n");
@@ -165,6 +164,7 @@ public class VenderMaletas extends JFrame implements ActionListener, ItemListene
 		if (cmbModelo.getSelectedIndex() == 2) {
 			impCompra = cantidad * VentanaMaletas.precio2;
 			impTotal += impCompra;
+			importGeneralAcumulado+=impTotal;
 			textAreaVenta.append("Modelo : " + VentanaMaletas.modelo2 + "\n");
 			textAreaVenta.append("Precio : " + VentanaMaletas.precio2 + "\n");
 			textAreaVenta.append("Cantidad adquirida : " + txtCantidad.getText() + "\n");
@@ -174,6 +174,7 @@ public class VenderMaletas extends JFrame implements ActionListener, ItemListene
 		if (cmbModelo.getSelectedIndex() == 3) {
 			impCompra = cantidad * VentanaMaletas.precio3;
 			impTotal += impCompra;
+			importGeneralAcumulado+=impTotal;
 			textAreaVenta.append("Modelo : " + VentanaMaletas.modelo3 + "\n");
 			textAreaVenta.append("Precio : " + VentanaMaletas.precio3 + "\n");
 			textAreaVenta.append("Cantidad adquirida : " + txtCantidad.getText() + "\n");
@@ -183,11 +184,11 @@ public class VenderMaletas extends JFrame implements ActionListener, ItemListene
 		if (cmbModelo.getSelectedIndex() == 4) {
 			impCompra = cantidad * VentanaMaletas.precio4;
 			impTotal += impCompra;
+			importGeneralAcumulado+=impTotal;
 			textAreaVenta.append("Modelo : " + VentanaMaletas.modelo4 + "\n");
 			textAreaVenta.append("Precio : " + VentanaMaletas.precio4 + "\n");
 			textAreaVenta.append("Cantidad adquirida : " + txtCantidad.getText() + "\n");
 			textAreaVenta.append("importe compra : " + impCompra + "\n");
-
 		}
 
 		// Descuento
@@ -216,11 +217,12 @@ public class VenderMaletas extends JFrame implements ActionListener, ItemListene
 			textAreaVenta.append("Unidades obsequiadas : " + cantidad * VentanaMaletas.obsequioCantidad1);
 		if (cantidad > 10)
 			textAreaVenta.append("Unidades obsequiadas : " + cantidad * VentanaMaletas.obsequioCantidad1);
-
+		
+		cont+=1;
+		//mensaje 
 		if (cont == 5) {
-			System.out.println("Mensaje : Num 5");
-			// JOptionPane.showMessageDialog("","Avance de ventas","Venta Nro.5\nImport
-			// total general acumulado:S/."+impTotal+"\nPorcentaje de la cuota diaria : ");
+			String str = "Venta Nro.5\nImporte total general acumulado : S/."+this.importGeneralAcumulado+"\nPorcentaje de la cuota diaria : "+(this.importGeneralAcumulado/5)+"%";
+			JOptionPane.showMessageDialog(null,str, "Avance de ventas", JOptionPane.INFORMATION_MESSAGE);
 			cont = 0;
 		}
 
