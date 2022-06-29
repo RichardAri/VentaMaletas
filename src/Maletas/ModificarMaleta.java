@@ -17,7 +17,7 @@ import java.beans.PropertyChangeEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 
-public class ModificarMaleta extends JFrame implements ActionListener {
+public class ModificarMaleta extends JFrame implements ActionListener,ItemListener {
 
 	private JPanel contentPane;
 	private JLabel lblModeloM;
@@ -102,41 +102,7 @@ public class ModificarMaleta extends JFrame implements ActionListener {
 		txtPrecio.setColumns(10);
 
 		cmbModelo = new JComboBox();
-		cmbModelo.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent e) {
-				if (cmbModelo.getSelectedIndex() == 0) {
-					txtPrecio.setText("" + VentanaMaletas.precio0);
-					txtAncho.setText("" + VentanaMaletas.ancho0);
-					txtAlto.setText("" + VentanaMaletas.alto0);
-					txtFondo.setText("" + VentanaMaletas.fondo0);
-				}
-				if (cmbModelo.getSelectedIndex() == 1) {
-					txtPrecio.setText("" + VentanaMaletas.precio1);
-					txtAncho.setText("" + VentanaMaletas.ancho1);
-					txtAlto.setText("" + VentanaMaletas.alto1);
-					txtFondo.setText("" + VentanaMaletas.fondo1);
-				}
-				if (cmbModelo.getSelectedIndex() == 2) {
-					txtPrecio.setText("" + VentanaMaletas.precio2);
-					txtAncho.setText("" + VentanaMaletas.ancho2);
-					txtAlto.setText("" + VentanaMaletas.alto2);
-					txtFondo.setText("" + VentanaMaletas.fondo2);
-				}
-				if (cmbModelo.getSelectedIndex() == 3) {
-					txtPrecio.setText("" + VentanaMaletas.precio3);
-					txtAncho.setText("" + VentanaMaletas.ancho3);
-					txtAlto.setText("" + VentanaMaletas.alto3);
-					txtFondo.setText("" + VentanaMaletas.fondo3);
-				}
-				if (cmbModelo.getSelectedIndex() == 4) {
-					txtPrecio.setText("" + VentanaMaletas.precio4);
-					txtAncho.setText("" + VentanaMaletas.ancho4);
-					txtAlto.setText("" + VentanaMaletas.alto4);
-					txtFondo.setText("" + VentanaMaletas.fondo4);
-				}
-
-			}
-		});
+		cmbModelo.addItemListener(this);
 		cmbModelo.setBounds(82, 7, 219, 18);
 		contentPane.add(cmbModelo);
 		cmbModelo.addItem("Aviator");
@@ -151,42 +117,7 @@ public class ModificarMaleta extends JFrame implements ActionListener {
 		contentPane.add(btnCerrar);
 
 		btnGrabar = new JButton("Grabar");
-		btnGrabar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				if (cmbModelo.getSelectedIndex() == 0) {
-					VentanaMaletas.precio0 = Double.parseDouble(txtPrecio.getText());
-					VentanaMaletas.ancho0 = Double.parseDouble(txtAncho.getText());
-					VentanaMaletas.alto0 = Double.parseDouble(txtAlto.getText());
-					VentanaMaletas.fondo0 = Double.parseDouble(txtFondo.getText());
-				}
-				if (cmbModelo.getSelectedIndex() == 1) {
-					VentanaMaletas.precio1 = Double.parseDouble(txtPrecio.getText());
-					VentanaMaletas.ancho1 = Double.parseDouble(txtAncho.getText());
-					VentanaMaletas.alto1 = Double.parseDouble(txtAlto.getText());
-					VentanaMaletas.fondo1 = Double.parseDouble(txtFondo.getText());
-				}
-				if (cmbModelo.getSelectedIndex() == 2) {
-					VentanaMaletas.precio2 = Double.parseDouble(txtPrecio.getText());
-					VentanaMaletas.ancho2 = Double.parseDouble(txtAncho.getText());
-					VentanaMaletas.alto2 = Double.parseDouble(txtAlto.getText());
-					VentanaMaletas.fondo2 = Double.parseDouble(txtFondo.getText());
-				}
-				if (cmbModelo.getSelectedIndex() == 3) {
-					VentanaMaletas.precio3 = Double.parseDouble(txtPrecio.getText());
-					VentanaMaletas.ancho3 = Double.parseDouble(txtAncho.getText());
-					VentanaMaletas.alto3 = Double.parseDouble(txtAlto.getText());
-					VentanaMaletas.fondo3 = Double.parseDouble(txtFondo.getText());
-				}
-				if (cmbModelo.getSelectedIndex() == 4) {
-					VentanaMaletas.precio4 = Double.parseDouble(txtPrecio.getText());
-					VentanaMaletas.ancho4 = Double.parseDouble(txtAncho.getText());
-					VentanaMaletas.alto4 = Double.parseDouble(txtAlto.getText());
-					VentanaMaletas.fondo4 = Double.parseDouble(txtFondo.getText());
-				}
-
-			}
-		});
+		btnGrabar.addActionListener(this);
 		btnGrabar.setBounds(311, 33, 89, 23);
 		contentPane.add(btnGrabar);
 	}
@@ -195,6 +126,9 @@ public class ModificarMaleta extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnCerrar)
 			actionPerformedBtnCerrar(e);
+		if( e.getSource() == this.btnGrabar)
+			actionPerformedBtnGrabar(e);
+			
 		
 	}
 	
@@ -202,7 +136,79 @@ public class ModificarMaleta extends JFrame implements ActionListener {
 		this.setVisible(false);
 	}
 	
+	public void actionPerformedBtnGrabar(ActionEvent e) {
+		if (cmbModelo.getSelectedIndex() == 0) {
+			VentanaMaletas.precio0 = Double.parseDouble(txtPrecio.getText());
+			VentanaMaletas.ancho0 = Double.parseDouble(txtAncho.getText());
+			VentanaMaletas.alto0 = Double.parseDouble(txtAlto.getText());
+			VentanaMaletas.fondo0 = Double.parseDouble(txtFondo.getText());
+		}
+		if (cmbModelo.getSelectedIndex() == 1) {
+			VentanaMaletas.precio1 = Double.parseDouble(txtPrecio.getText());
+			VentanaMaletas.ancho1 = Double.parseDouble(txtAncho.getText());
+			VentanaMaletas.alto1 = Double.parseDouble(txtAlto.getText());
+			VentanaMaletas.fondo1 = Double.parseDouble(txtFondo.getText());
+		}
+		if (cmbModelo.getSelectedIndex() == 2) {
+			VentanaMaletas.precio2 = Double.parseDouble(txtPrecio.getText());
+			VentanaMaletas.ancho2 = Double.parseDouble(txtAncho.getText());
+			VentanaMaletas.alto2 = Double.parseDouble(txtAlto.getText());
+			VentanaMaletas.fondo2 = Double.parseDouble(txtFondo.getText());
+		}
+		if (cmbModelo.getSelectedIndex() == 3) {
+			VentanaMaletas.precio3 = Double.parseDouble(txtPrecio.getText());
+			VentanaMaletas.ancho3 = Double.parseDouble(txtAncho.getText());
+			VentanaMaletas.alto3 = Double.parseDouble(txtAlto.getText());
+			VentanaMaletas.fondo3 = Double.parseDouble(txtFondo.getText());
+		}
+		if (cmbModelo.getSelectedIndex() == 4) {
+			VentanaMaletas.precio4 = Double.parseDouble(txtPrecio.getText());
+			VentanaMaletas.ancho4 = Double.parseDouble(txtAncho.getText());
+			VentanaMaletas.alto4 = Double.parseDouble(txtAlto.getText());
+			VentanaMaletas.fondo4 = Double.parseDouble(txtFondo.getText());
+		}
+		
+	}
+
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		if (e.getSource() == this.cmbModelo)
+			itemStateChangedCmbModelo(e);
+		
+	}
 	
+	public void itemStateChangedCmbModelo(ItemEvent e) {
+		if (cmbModelo.getSelectedIndex() == 0) {
+			txtPrecio.setText("" + VentanaMaletas.precio0);
+			txtAncho.setText("" + VentanaMaletas.ancho0);
+			txtAlto.setText("" + VentanaMaletas.alto0);
+			txtFondo.setText("" + VentanaMaletas.fondo0);
+		}
+		if (cmbModelo.getSelectedIndex() == 1) {
+			txtPrecio.setText("" + VentanaMaletas.precio1);
+			txtAncho.setText("" + VentanaMaletas.ancho1);
+			txtAlto.setText("" + VentanaMaletas.alto1);
+			txtFondo.setText("" + VentanaMaletas.fondo1);
+		}
+		if (cmbModelo.getSelectedIndex() == 2) {
+			txtPrecio.setText("" + VentanaMaletas.precio2);
+			txtAncho.setText("" + VentanaMaletas.ancho2);
+			txtAlto.setText("" + VentanaMaletas.alto2);
+			txtFondo.setText("" + VentanaMaletas.fondo2);
+		}
+		if (cmbModelo.getSelectedIndex() == 3) {
+			txtPrecio.setText("" + VentanaMaletas.precio3);
+			txtAncho.setText("" + VentanaMaletas.ancho3);
+			txtAlto.setText("" + VentanaMaletas.alto3);
+			txtFondo.setText("" + VentanaMaletas.fondo3);
+		}
+		if (cmbModelo.getSelectedIndex() == 4) {
+			txtPrecio.setText("" + VentanaMaletas.precio4);
+			txtAncho.setText("" + VentanaMaletas.ancho4);
+			txtAlto.setText("" + VentanaMaletas.alto4);
+			txtFondo.setText("" + VentanaMaletas.fondo4);
+		}
+	}
 	
 }
 

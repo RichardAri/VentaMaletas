@@ -1,4 +1,5 @@
 package Maletas;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -10,9 +11,11 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.ActionEvent;
 
-public class ConsultarMaleta extends JFrame implements ActionListener {
+public class ConsultarMaleta extends JFrame implements ActionListener, ItemListener {
 
 	private JPanel contentPane;
 	private JLabel lblModeloM;
@@ -38,6 +41,7 @@ public class ConsultarMaleta extends JFrame implements ActionListener {
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
+					
 				}
 			}
 		});
@@ -47,6 +51,7 @@ public class ConsultarMaleta extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public ConsultarMaleta() {
+		
 		setTitle("Consultar Maleta");
 		setDefaultCloseOperation(HIDE_ON_CLOSE);
 		setBounds(100, 100, 427, 174);
@@ -116,7 +121,7 @@ public class ConsultarMaleta extends JFrame implements ActionListener {
 			cmbModelo.addItem("Benneton");
 			cmbModelo.addItem("Lucas");
 			cmbModelo.addItem("Samsonite");
-			cmbModelo.addActionListener(this);
+			cmbModelo.addItemListener(this);
 		}
 		{
 			btnCerrar = new JButton("Cerrar");
@@ -124,30 +129,67 @@ public class ConsultarMaleta extends JFrame implements ActionListener {
 			btnCerrar.setBounds(311, 7, 89, 23);
 			contentPane.add(btnCerrar);
 		}
+		//Valores por default
+		this.txtPrecio.setText(""+VentanaMaletas.precio0);
+		this.txtAncho.setText(""+VentanaMaletas.ancho0);
+		this.txtAlto.setText(""+VentanaMaletas.alto0);
+		this.txtFondo.setText(""+VentanaMaletas.fondo0);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == btnCerrar)
+		if (e.getSource() == btnCerrar)
 			actionPerformedBtnCerrar(e);
-		if(e.getSource() == cmbModelo)
-			actionPerformedCmbModelo(e);
 	}
-	
-	public void actionPerformedCmbModelo(ActionEvent e) {
-		
-		//Declaracion de variables
-		String modeloseleccionado = (String)cmbModelo.getSelectedItem();
-		if(modeloseleccionado == "Aviator")
-		{
 
-		}
-		
-	}
-	
-	
 	public void actionPerformedBtnCerrar(ActionEvent e) {
-		
 		this.setVisible(false);
 	}
+
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		if (e.getSource() == this.cmbModelo)
+			itemStateChangedCmbModelo(e);
+
+	}
+
+	public void itemStateChangedCmbModelo(ItemEvent e) {
+		// Declaracion de variables
+		int modeloseleccionado = cmbModelo.getSelectedIndex();
+		switch (modeloseleccionado) {
+		case 0:
+			this.txtPrecio.setText(""+VentanaMaletas.precio0);
+			this.txtAncho.setText(""+VentanaMaletas.ancho0);
+			this.txtAlto.setText(""+VentanaMaletas.alto0);
+			this.txtFondo.setText(""+VentanaMaletas.fondo0);
+			break;
+		case 1:
+			this.txtPrecio.setText(""+VentanaMaletas.precio1);
+			this.txtAncho.setText(""+VentanaMaletas.ancho1);
+			this.txtAlto.setText(""+VentanaMaletas.alto1);
+			this.txtFondo.setText(""+VentanaMaletas.fondo1);
+			break;
+		case 2:
+			this.txtPrecio.setText(""+VentanaMaletas.precio2);
+			this.txtAncho.setText(""+VentanaMaletas.ancho2);
+			this.txtAlto.setText(""+VentanaMaletas.alto2);
+			this.txtFondo.setText(""+VentanaMaletas.fondo2);
+			break;
+		case 3:
+			this.txtPrecio.setText(""+VentanaMaletas.precio3);
+			this.txtAncho.setText(""+VentanaMaletas.ancho3);
+			this.txtAlto.setText(""+VentanaMaletas.alto3);
+			this.txtFondo.setText(""+VentanaMaletas.fondo3);
+			break;
+		case 4:
+			this.txtPrecio.setText(""+VentanaMaletas.precio4);
+			this.txtAncho.setText(""+VentanaMaletas.ancho4);
+			this.txtAlto.setText(""+VentanaMaletas.alto4);
+			this.txtFondo.setText(""+VentanaMaletas.fondo4);
+			break;
+		default:
+			break;
+		}
+	}
+
 }

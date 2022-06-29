@@ -13,8 +13,10 @@ import javax.swing.JList;
 import javax.swing.JComboBox;
 import java.awt.Button;
 import javax.swing.JButton;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
 
-public class GenerarReportes extends JFrame {
+public class GenerarReportes extends JFrame implements ItemListener {
 
 	private JPanel contentPane;
 	private JScrollPane scrollPane;
@@ -67,6 +69,7 @@ public class GenerarReportes extends JFrame {
 		}
 		{
 			cmbTipoReporte = new JComboBox();
+			cmbTipoReporte.addItemListener(this);
 			cmbTipoReporte.setBounds(101, 7, 365, 22);
 			cmbTipoReporte.addItem("Ventas por modelo");
 			cmbTipoReporte.addItem("Razon de precios en relacion al mayor");
@@ -79,5 +82,23 @@ public class GenerarReportes extends JFrame {
 			btnCerrar.setBounds(477, 7, 89, 23);
 			contentPane.add(btnCerrar);
 		}
+		
+		
 	}
+
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		if (e.getSource() == this.cmbTipoReporte)
+			itemStateChangedCmbTipoReporte(e);
+			
+		
+	}
+	
+	public void itemStateChangedCmbTipoReporte(ItemEvent e) {
+		
+		
+	}
+	
+	
+	
 }
