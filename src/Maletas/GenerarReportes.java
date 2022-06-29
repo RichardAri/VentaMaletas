@@ -118,32 +118,26 @@ public class GenerarReportes extends JFrame implements ItemListener {
 	
 	
 	private void reportePorRelacionPrecio() {
-		
 		textAreaReporte.setText("RAZON DE PRECIOS EN RELACION AL PRECIO MAYOR\n");
-		textAreaReporte.append("Modelo				 		  : Aviator\n");
-		textAreaReporte.append("Cantidad de Ventas  	      : "+VentanaMaletas.cantidadVentasAviator+"\n");
-		textAreaReporte.append("Cantidad de Unidades Vendidas : "+VentanaMaletas.cantidadUnidadesVendidasAviator+"\n");
-		textAreaReporte.append("Import total vendido 		  : "+VentanaMaletas.impTotalAviator+"\n");
+		textAreaReporte.append("Modelo : Aviator\n");
+		textAreaReporte.append("Precio : "+VentanaMaletas.cantidadVentasAviator+"\n");
+		textAreaReporte.append("Razon : "+VentanaMaletas.cantidadUnidadesVendidasAviator+"\n");
 		
-		textAreaReporte.append("Modelo				 		  : Century\n");
-		textAreaReporte.append("Cantidad de Ventas  	      : " + VentanaMaletas.cantidadVentasCentury + "\n");
-		textAreaReporte.append("Cantidad de Unidades Vendidas : " + VentanaMaletas.cantidadUnidadesVendidasCentury + "\n");
-		textAreaReporte.append("Import total vendido 		  : " + VentanaMaletas.impTotalCentury + "\n");
-		
-		textAreaReporte.append("Modelo				 		  : Benneton\n");
-		textAreaReporte.append("Cantidad de Ventas  	      : " + VentanaMaletas.cantidadVentasBenneton + "\n");
-		textAreaReporte.append("Cantidad de Unidades Vendidas : " + VentanaMaletas.cantidadUnidadesVendidasBenneton + "\n");
-		textAreaReporte.append("Import total vendido 		  : " + VentanaMaletas.impTotalBenneton + "\n");
-		
-		textAreaReporte.append("Modelo				 		  : Lucas\n");
-		textAreaReporte.append("Cantidad de Ventas  	      : " + VentanaMaletas.cantidadVentasLucas + "\n");
-		textAreaReporte.append("Cantidad de Unidades Vendidas : " + VentanaMaletas.cantidadUnidadesVendidasLucas + "\n");
-		textAreaReporte.append("Import total vendido 		  : " + VentanaMaletas.impTotalLucas + "\n");
-		
-		textAreaReporte.append("Modelo				 		  : Samsonite\n");
-		textAreaReporte.append("Cantidad de Ventas  	      : " + VentanaMaletas.cantidadVentasSamsonite + "\n");
-		textAreaReporte.append("Cantidad de Unidades Vendidas : " + VentanaMaletas.cantidadUnidadesVendidasSamsonite + "\n");
-		textAreaReporte.append("Import total vendido 		  : " + VentanaMaletas.impTotalSamsonite);
+		textAreaReporte.append("Modelo : Century\n");
+		textAreaReporte.append("Precio : "+VentanaMaletas.cantidadVentasCentury+"\n");
+		textAreaReporte.append("Razon : "+VentanaMaletas.cantidadUnidadesVendidasCentury+"\n");
+
+		textAreaReporte.append("Modelo : Benneton\n");
+		textAreaReporte.append("Precio : "+VentanaMaletas.cantidadVentasBenneton+"\n");
+		textAreaReporte.append("Razon : "+VentanaMaletas.cantidadUnidadesVendidasBenneton+"\n");
+
+		textAreaReporte.append("Modelo : Lucas\n");
+		textAreaReporte.append("Precio : "+VentanaMaletas.cantidadVentasLucas+"\n");
+		textAreaReporte.append("Razon : "+VentanaMaletas.cantidadUnidadesVendidasLucas+"\n");
+
+		textAreaReporte.append("Modelo : Samsonite\n");
+		textAreaReporte.append("Precio : "+VentanaMaletas.cantidadVentasSamsonite+"\n");
+		textAreaReporte.append("Razon : "+VentanaMaletas.cantidadUnidadesVendidasSamsonite);
 		
 	}
 
