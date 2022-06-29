@@ -9,20 +9,21 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-public class ConfigurarDescuentos extends JFrame  implements ActionListener {
+public class ConfigurarDescuentos extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JLabel lblTipoObsequio;
 	private JLabel lblUnoACinco;
 	private JLabel lblSeisADiez;
 	private JLabel lblOnceAMas;
-	private JTextField txtTipoObsequio;
-	private JTextField txtUnoACinco;
-	private JTextField txtSeisADiez;
-	private JTextField txtOnceAMas;
+	private JTextField txtUnoCinco;
+	private JTextField txtSeisDiez;
+	private JTextField txtOnceQuince;
+	private JTextField txtMasQuince;
 	private JButton btnAceptar;
 	private JButton btnCerrar;
 	private JLabel lblPorcentaje;
@@ -78,31 +79,32 @@ public class ConfigurarDescuentos extends JFrame  implements ActionListener {
 			contentPane.add(lblOnceAMas);
 		}
 		{
-			txtTipoObsequio = new JTextField();
-			txtTipoObsequio.setBounds(135, 8, 86, 20);
-			contentPane.add(txtTipoObsequio);
-			txtTipoObsequio.setColumns(10);
+			txtUnoCinco = new JTextField();
+			txtUnoCinco.setBounds(135, 8, 86, 20);
+			contentPane.add(txtUnoCinco);
+			txtUnoCinco.setColumns(10);
 		}
 		{
-			txtUnoACinco = new JTextField();
-			txtUnoACinco.setColumns(10);
-			txtUnoACinco.setBounds(135, 33, 86, 20);
-			contentPane.add(txtUnoACinco);
+			txtSeisDiez = new JTextField();
+			txtSeisDiez.setColumns(10);
+			txtSeisDiez.setBounds(135, 33, 86, 20);
+			contentPane.add(txtSeisDiez);
 		}
 		{
-			txtSeisADiez = new JTextField();
-			txtSeisADiez.setColumns(10);
-			txtSeisADiez.setBounds(135, 58, 86, 20);
-			contentPane.add(txtSeisADiez);
+			txtOnceQuince = new JTextField();
+			txtOnceQuince.setColumns(10);
+			txtOnceQuince.setBounds(135, 58, 86, 20);
+			contentPane.add(txtOnceQuince);
 		}
 		{
-			txtOnceAMas = new JTextField();
-			txtOnceAMas.setColumns(10);
-			txtOnceAMas.setBounds(135, 83, 86, 20);
-			contentPane.add(txtOnceAMas);
+			txtMasQuince = new JTextField();
+			txtMasQuince.setColumns(10);
+			txtMasQuince.setBounds(135, 83, 86, 20);
+			contentPane.add(txtMasQuince);
 		}
 		{
 			btnAceptar = new JButton("Aceptar");
+			btnAceptar.addActionListener(this);
 			btnAceptar.setBounds(267, 7, 89, 23);
 			contentPane.add(btnAceptar);
 		}
@@ -132,20 +134,35 @@ public class ConfigurarDescuentos extends JFrame  implements ActionListener {
 			lblPorcentaje_3.setBounds(231, 86, 46, 14);
 			contentPane.add(lblPorcentaje_3);
 		}
+		rellenarDescuentos();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == btnCerrar)
+		if (e.getSource() == btnCerrar)
 			actionPerformedBtnCerrar(e);
-		
+		if (e.getSource() == btnAceptar)
+			actionPerformedBtnAceptar(e);
 	}
-	
-	
+
 	public void actionPerformedBtnCerrar(ActionEvent e) {
 		this.setVisible(false);
 	}
-	
-	
+
+	public void rellenarDescuentos() {
+		txtUnoCinco.setText(VentanaMaletas.porcentaje1 + "");
+		txtSeisDiez.setText(VentanaMaletas.porcentaje2 + "");
+		txtOnceQuince.setText(VentanaMaletas.porcentaje3 + "");
+		txtMasQuince.setText(VentanaMaletas.porcentaje4 + "");
+	}
+
+	public void actionPerformedBtnAceptar(ActionEvent e) {
+		VentanaMaletas.porcentaje1 = Double.parseDouble(txtUnoCinco.getText().toString());
+		VentanaMaletas.porcentaje2 = Double.parseDouble(txtSeisDiez.getText().toString());
+		VentanaMaletas.porcentaje3 = Double.parseDouble(txtOnceQuince.getText().toString());
+		VentanaMaletas.porcentaje4 = Double.parseDouble(txtMasQuince.getText().toString());
+		JOptionPane.showMessageDialog(null,"Porcentaje(s) actualizados exitosamente", "Actualizacion de Porcentajes", JOptionPane.INFORMATION_MESSAGE);
+		txtUnoCinco.requestFocus();
+	}
 
 }

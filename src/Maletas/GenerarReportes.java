@@ -142,45 +142,45 @@ public class GenerarReportes extends JFrame implements ItemListener {
 		int superaron = 0;
 		int noSuperaron = 0;
 		int igualaron = 0;
+		// Aviator
 		if (VentanaMaletas.cantidadUnidadesVendidasAviator > VentanaMaletas.cantidadOptima)
 			superaron += 1;
 		else if (VentanaMaletas.cantidadUnidadesVendidasAviator == VentanaMaletas.cantidadOptima)
 			igualaron += 1;
-		else {
+		else
 			noSuperaron += 1;
-		}
 
+		// Century
 		if (VentanaMaletas.cantidadUnidadesVendidasCentury > VentanaMaletas.cantidadOptima)
 			superaron += 1;
 		else if (VentanaMaletas.cantidadUnidadesVendidasCentury == VentanaMaletas.cantidadOptima)
 			igualaron += 1;
-		else {
+		else
 			noSuperaron += 1;
-		}
 
+		// Benneton
 		if (VentanaMaletas.cantidadUnidadesVendidasBenneton > VentanaMaletas.cantidadOptima)
 			superaron += 1;
 		else if (VentanaMaletas.cantidadUnidadesVendidasBenneton == VentanaMaletas.cantidadOptima)
 			igualaron += 1;
-		else {
+		else
 			noSuperaron += 1;
-		}
 
+		// Lucas
 		if (VentanaMaletas.cantidadUnidadesVendidasLucas > VentanaMaletas.cantidadOptima)
 			superaron += 1;
 		else if (VentanaMaletas.cantidadUnidadesVendidasLucas == VentanaMaletas.cantidadOptima)
 			igualaron += 1;
-		else {
+		else
 			noSuperaron += 1;
-		}
 
+		// Samsonite
 		if (VentanaMaletas.cantidadUnidadesVendidasSamsonite > VentanaMaletas.cantidadOptima)
 			superaron += 1;
 		else if (VentanaMaletas.cantidadUnidadesVendidasSamsonite == VentanaMaletas.cantidadOptima)
 			igualaron += 1;
-		else {
+		else
 			noSuperaron += 1;
-		}
 
 		textAreaReporte.setText("ESTADISTICA SOBRE LA CANTIDA OPTIMA\n");
 		textAreaReporte.append("Cantidad de modelos que superaron la cantidad optima : " + superaron + "\n");
@@ -252,17 +252,15 @@ public class GenerarReportes extends JFrame implements ItemListener {
 				&& VentanaMaletas.cantidadUnidadesVendidasSamsonite < VentanaMaletas.cantidadUnidadesVendidasLucas
 				&& VentanaMaletas.cantidadUnidadesVendidasSamsonite < VentanaMaletas.cantidadUnidadesVendidasCentury)
 			menor = VentanaMaletas.cantidadUnidadesVendidasSamsonite;
-		
-		promedio = (VentanaMaletas.cantidadUnidadesVendidasAviator+
-				VentanaMaletas.cantidadUnidadesVendidasCentury+
-				VentanaMaletas.cantidadUnidadesVendidasBenneton+
-				VentanaMaletas.cantidadUnidadesVendidasLucas+
-				VentanaMaletas.cantidadUnidadesVendidasSamsonite)/5;
+
+		promedio = (VentanaMaletas.cantidadUnidadesVendidasAviator + VentanaMaletas.cantidadUnidadesVendidasCentury
+				+ VentanaMaletas.cantidadUnidadesVendidasBenneton + VentanaMaletas.cantidadUnidadesVendidasLucas
+				+ VentanaMaletas.cantidadUnidadesVendidasSamsonite) / 5;
 
 		textAreaReporte.setText("ESTADISTICA SOBRE EL PRECIO\n");
-		textAreaReporte.append("Precio promedio : S/."+promedio+"\n");
-		textAreaReporte.append("Precio mayor : S/."+mayor+"\n");
-		textAreaReporte.append("Precio menor : S/."+menor);
+		textAreaReporte.append("Precio promedio : S/." + promedio + "\n");
+		textAreaReporte.append("Precio mayor : S/." + mayor + "\n");
+		textAreaReporte.append("Precio menor : S/." + menor);
 
 	}
 

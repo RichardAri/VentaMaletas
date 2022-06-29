@@ -70,12 +70,13 @@ public class VentanaMaletas extends JFrame implements ActionListener {
 	public static double porcentaje3 = 12.5;
 	public static double porcentaje4 = 15.0;
 	
+	
+	
 	//Cantidad Optima
 	public static double cuotaDiaria = 30000; 
 	public static int cantidadOptima = 10;
 	
-	//Variable de Reportes
-	
+	//Variables de Reportes
 	//Aviator
 	public static int cantidadVentasAviator = 0;
 	public static int cantidadUnidadesVendidasAviator = 0;
