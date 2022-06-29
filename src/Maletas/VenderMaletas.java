@@ -16,6 +16,9 @@ import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import java.awt.TextArea;
 import java.awt.event.ItemListener;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.awt.event.ItemEvent;
 
 public class VenderMaletas extends JFrame implements ActionListener, ItemListener {
@@ -220,8 +223,8 @@ public class VenderMaletas extends JFrame implements ActionListener, ItemListene
 		
 		cont+=1;
 		//mensaje 
-		if (cont == 5) {
-			String str = "Venta Nro.5\nImporte total general acumulado : S/."+this.importGeneralAcumulado+"\nPorcentaje de la cuota diaria : "+(this.importGeneralAcumulado/5)+"%";
+		if (cont == 5) { 
+			String str = "Venta Nro.5\nImporte total general acumulado : S/."+new DecimalFormat(".##").format(importGeneralAcumulado)+"\nPorcentaje de la cuota diaria : "+(importGeneralAcumulado/5.0)+"%";
 			JOptionPane.showMessageDialog(null,str, "Avance de ventas", JOptionPane.INFORMATION_MESSAGE);
 			cont = 0;
 		}
