@@ -82,23 +82,70 @@ public class GenerarReportes extends JFrame implements ItemListener {
 			btnCerrar.setBounds(477, 7, 89, 23);
 			contentPane.add(btnCerrar);
 		}
-		
-		
+
 	}
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		if (e.getSource() == this.cmbTipoReporte)
 			itemStateChangedCmbTipoReporte(e);
-			
-		
+
 	}
-	
+
 	public void itemStateChangedCmbTipoReporte(ItemEvent e) {
-		
-		
+		int index = this.cmbTipoReporte.getSelectedIndex();
+		textAreaReporte.setText("VENTAS POR MODELO\n");
+		switch (index) {
+		case 0:
+			textAreaReporte.append("modelo				 		  : Aviator\n");
+			textAreaReporte.append("Cantidad de Ventas  	      : "+VentanaMaletas.cantidadVentasAviator+"|n");
+			textAreaReporte.append("Cantidad de Unidades Vendidas : "+VentanaMaletas.cantidadUnidadesVendidasAviator+"\n");
+			textAreaReporte.append("Import total vendido 		  : "+VentanaMaletas.impTotalAviator+"\n");
+			
+			textAreaReporte.append("modelo				 		  : Aviator\n");
+			textAreaReporte.append("Cantidad de Ventas  	      : " + VentanaMaletas.cantidadVentasCentury + "|n");
+			textAreaReporte.append("Cantidad de Unidades Vendidas : " + VentanaMaletas.cantidadUnidadesVendidasCentury + "\n");
+			textAreaReporte.append("Import total vendido 		  : " + VentanaMaletas.impTotalCentury + "\n");
+			
+			textAreaReporte.append("modelo				 		  : Aviator\n");
+			textAreaReporte.append("Cantidad de Ventas  	      : " + VentanaMaletas.cantidadVentasBenneton + "|n");
+			textAreaReporte.append("Cantidad de Unidades Vendidas : " + VentanaMaletas.cantidadUnidadesVendidasBenneton + "\n");
+			textAreaReporte.append("Import total vendido 		  : " + VentanaMaletas.impTotalBenneton + "\n");
+			
+			textAreaReporte.append("modelo				 		  : Aviator\n");
+			textAreaReporte.append("Cantidad de Ventas  	      : " + VentanaMaletas.cantidadVentasLucas + "|n");
+			textAreaReporte.append("Cantidad de Unidades Vendidas : " + VentanaMaletas.cantidadUnidadesVendidasLucas + "\n");
+			textAreaReporte.append("Import total vendido 		  : " + VentanaMaletas.impTotalLucas + "\n");
+			
+			textAreaReporte.append("modelo				 		  : Aviator\n");
+			textAreaReporte.append("Cantidad de Ventas  	      : " + VentanaMaletas.cantidadVentasLucas + "|n");
+			textAreaReporte.append("Cantidad de Unidades Vendidas : " + VentanaMaletas.cantidadUnidadesVendidasLucas + "\n");
+			textAreaReporte.append("Import total vendido 		  : " + VentanaMaletas.impTotalLucas + "\n");
+			
+			textAreaReporte.append("modelo				 		  : Aviator\n");
+			textAreaReporte.append("Cantidad de Ventas  	      : " + VentanaMaletas.cantidadVentasSamsonite + "|n");
+			textAreaReporte.append("Cantidad de Unidades Vendidas : " + VentanaMaletas.cantidadUnidadesVendidasSamsonite + "\n");
+			textAreaReporte.append("Import total vendido 		  : " + VentanaMaletas.impTotalSamsonite + "\n");
+			
+			break;
+		case 1:
+
+			break;
+		case 2:
+
+			break;
+		case 3:
+
+			break;
+		case 4:
+
+			break;
+
+		default:
+			
+			break;
+		}
+
 	}
-	
-	
-	
+
 }
